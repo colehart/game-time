@@ -36,15 +36,85 @@ describe('GamePiece', () => {
     assert.isFalse(isColliding)
   });
 
-  it.skip('should collide with walls', () => {
+  it('should collide with walls', () => {
+    const ctx = {
+      canvas: {
+        width: 500,
+        height: 500
+      }
+    }
 
+    const { width, height } = ctx.canvas;
+    assert.isFalse(gamePiece.isCollidingWithWall(width, height));
+    gamePiece.x = ctx.canvas.width;
+
+    assert.isTrue(gamePiece.isCollidingWithWall(width, height));
   });
 
-  it.skip('should be able to move', () => {
+  it('should be able to move', () => {
+    assert.equal(gamePiece.x, 250)
 
+    gamePiece.move();
+
+    assert.equal(gamePiece.x, 252)
   });
 
-  it.skip('should be able to changeDirection', () => {
+  it('should allow gamePiece to changeDirection to Down', () => {
+    assert.equal(gamePiece.dy, 0);
 
-  });
+    const direction = {
+      dx: gamePiece.dx,
+      dy: gamePiece.dy
+    };
+
+    direction.dy = 1;
+    gamePiece.changeDirection(direction);
+
+    assert.equal(gamePiece.dy, 1);
+  })
+
+  it('should allow gamePiece to changeDirection to Up', () => {
+    assert.equal(gamePiece.dy, 0);
+
+    const direction = {
+      dx: gamePiece.dx,
+      dy: gamePiece.dy
+    };
+
+    direction.dy = -1;
+
+    gamePiece.changeDirection(direction);
+
+    assert.equal(gamePiece.dy, -1);
+  })
+
+  it('should allow gamePiece to changeDirection to Right', () => {
+    gamePiece.dx = 0;
+
+    const direction = {
+      dx: gamePiece.dx,
+      dy: gamePiece.dy
+    };
+
+    direction.dx = 1;
+
+    gamePiece.changeDirection(direction);
+
+    assert.equal(gamePiece.dx, 1);
+  })
+
+  it('should allow gamePiece to changeDirection to Left', () => {
+    gamePiece.dx = 0;
+
+    const direction = {
+      dx: gamePiece.dx,
+      dy: gamePiece.dy
+    };
+
+    direction.dx = -1;
+
+    gamePiece.changeDirection(direction);
+
+    assert.equal(gamePiece.dx, -1);
+  })
 });
