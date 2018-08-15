@@ -14,12 +14,12 @@ describe('Game', () => {
   let game;
   let snake;
 
-
   beforeEach(() => {
     game = new Game(ctx);
     snake = game.snake;
   });
 
+//how to test random placement of food
   it('should take properties', () => {
     assert.deepEqual(game, {
       ctx: ctx,
@@ -30,9 +30,9 @@ describe('Game', () => {
     });
   });
 
-  it('should collide with walls', () => {
+  it('should allow snake to collide with walls', () => {
     snake.x = ctx.canvas.width;
-    assert.isTrue(snake.isCollidingWithWall(ctx.canvas.width, ctx.canvas.height));    
+    assert.isTrue(snake.isCollidingWithWall(ctx.canvas.width, ctx.canvas.height));
   })
 
   it('should end game when snake collides with wall', () => {
@@ -42,9 +42,17 @@ describe('Game', () => {
     assert.isTrue(game.gameOver);
   })
 
-  it.skip('should move', () => {
+  it('should allow snake to move if not colliding with walls', () => {
+    game.handleSnake(snake);
 
+    assert.isFalse(game.gameOver);
   })
 
-  it.skip('should be able to changeDirection', () => {})
+  it('should allow snake to changeDirection', () => {
+    assert.equal(snake.dy, 0);
+    let e = { key: 'ArrowDown' };
+    game.handleKeyPress(e);
+
+    assert.equal(snake.dy, 1);
+  })
 })
