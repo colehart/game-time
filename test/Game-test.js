@@ -12,35 +12,39 @@ const ctx = {
 
 describe('Game', () => {
   let game;
+  let snake;
+
 
   beforeEach(() => {
     game = new Game(ctx);
+    snake = game.snake;
   });
 
   it('should take properties', () => {
-    assert.equal(game, {
+    assert.deepEqual(game, {
       ctx: ctx,
       paused: false,
       gameOver: false,
-      snakes: [
-        new Snake(250, 250, 25, 25, 'red', 'black')
-      ],
-      food: [
-        game.food
-      ]
+      snake: new Snake(250, 250, 25, 25, 'red', 'black'),
+      food: game.food
     });
   });
 
-  it.skip('should collide with walls', () => {})
+  it('should collide with walls', () => {
+    snake.x = ctx.canvas.width;
+    assert.isTrue(snake.isCollidingWithWall(ctx.canvas.width, ctx.canvas.height));    
+  })
 
   it('should end game when snake collides with wall', () => {
-    const snake = game.snakes[0];
     snake.x = ctx.canvas.width;
     game.handleSnake(snake);
 
     assert.isTrue(game.gameOver);
   })
 
-  it.skip('should be able to move', () => {})
+  it.skip('should move', () => {
+
+  })
+
   it.skip('should be able to changeDirection', () => {})
 })
