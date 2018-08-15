@@ -1,3 +1,5 @@
+//write test for randomized Food
+
 const { assert } = require('chai');
 const Game = require('../lib/Game');
 const Snake = require('../lib/Snake');

@@ -1,5 +1,4 @@
 const { assert } = require('chai');
-const GamePiece = require('../lib/GamePiece');
 const Snake = require('../lib/Snake');
 
 describe('Snake', () => {
@@ -44,5 +43,4 @@ describe('Snake', () => {
       dyv: 2
     });
   });
- 
 });
