@@ -1,4 +1,4 @@
-//write test for randomized Food
+//write test for randomized Food in handleSnake function
 
 const { assert } = require('chai');
 const Game = require('../lib/Game');
@@ -54,17 +54,45 @@ describe('Game', () => {
   })
 
   it('should allow snake to move if not colliding with walls', () => {
+    // handleSnake() conditional handles endGame if colliding with walls
+    assert.equal(snake.x, 250);
+
     game.handleSnake(snake);
 
+    assert.equal(snake.x, 252)
     assert.isFalse(game.gameOver);
   })
 
-  it('should allow snake to changeDirection', () => {
+  it('should allow snake to changeDirection to Down', () => {
     assert.equal(snake.dy, 0);
     let e = { key: 'ArrowDown' };
     game.handleKeyPress(e);
 
     assert.equal(snake.dy, 1);
+  })
+
+  it('should allow snake to changeDirection to Up', () => {
+    assert.equal(snake.dy, 0);
+    let e = { key: 'ArrowUp' };
+    game.handleKeyPress(e);
+
+    assert.equal(snake.dy, -1);
+  })
+
+  it('should allow snake to changeDirection to Right', () => {
+    snake.dx = 0;
+    let e = { key: 'ArrowRight' };
+    game.handleKeyPress(e);
+
+    assert.equal(snake.dx, 1);
+  })
+
+  it('should allow snake to changeDirection to Left', () => {
+    snake.dx = 0;
+    let e = { key: 'ArrowLeft' };
+    game.handleKeyPress(e);
+
+    assert.equal(snake.dx, -1);
   })
 
   it('should not allow snake to reverse direction', () => {
@@ -86,7 +114,7 @@ describe('Game', () => {
   })
 
   it('should not allow snake to move when game is paused', () => {
-    assert.equal(snake.dx, 1)
+    assert.equal(snake.dx, 1);
 
     let e = { code: 'Space' };
     game.handleKeyPress(e);
