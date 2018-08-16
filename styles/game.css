@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Superscript';
+  src: url('./superscript.ttf');
+}
+
+#game {
+  border: 1px dashed;
+  margin: auto;
+  display: block;
+  font: 4rem 'Superscript' serif;
+}
