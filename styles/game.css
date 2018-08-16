@@ -5,11 +5,27 @@
 
 body {
   font-family: "Superscript";
+  background-color: #000000;
+  color: green;
+}
+
+h1,
+h3 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 2rem;
 }
 
 #game {
   border: 1px dashed;
   margin: auto;
   display: block;
-  font: 4rem 'Superscript' serif;
+  font: 6rem 'Superscript' serif;
+  color: green;
 }

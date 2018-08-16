@@ -3,7 +3,7 @@
 ## Game Mechanics
 
 ### Losing Conditions
-* Collision with sides
+* ~~Collision with sides~~
 * Collision with self
 
 ### Movement
@@ -11,7 +11,7 @@
 
 ### Collecting tokens 
 * Lengthens the snake
-* Removes the collected token
+* ~~Removes the collected token~~
 * Generates a new token in a random space on the grid where the snake is not present
 
 ### Increased Difficulty (Extension?)
@@ -19,6 +19,6 @@
 * Adds obstacles
 
 ### Scoring
-* Tokens collected
+* ~~Tokens collected~~
 * Snake length?
 * High score in local storage
