@@ -28,7 +28,8 @@ describe('Game', () => {
       paused: false,
       gameOver: false,
       snake: new Snake(250, 250, 25, 25, 'red', 'black'),
-      food: game.food
+      food: game.food,
+      score: 0
     });
   });
 
@@ -130,5 +131,16 @@ describe('Game', () => {
     game.handleKeyPress(e);
 
     assert.isFalse(game.paused);
+  })
+
+  it('should start with score of 0', () => {
+    assert.equal(game.score, 0);
+  })
+
+  it('should increment score with every food eaten', () => {
+    game.food = new Food(250, 250, 10, 10, 'blue', 'green');
+    game.handleSnake(snake);
+
+    assert.equal(game.score, 1);
   })
 })
