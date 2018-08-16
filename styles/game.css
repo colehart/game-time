@@ -3,6 +3,10 @@
   src: url('./superscript.ttf');
 }
 
+body {
+  font-family: "Superscript";
+}
+
 #game {
   border: 1px dashed;
   margin: auto;
