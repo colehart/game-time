@@ -4,12 +4,48 @@
   <meta charset="utf-8">
   <title>Game Time</title>
   <link href='./styles/game.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 </head>
 <body>
-  <h1>Pac-ilisk</h1>
-  <h3>Score: <span class="js-game-score">0</span></h3>
-  <canvas id="game" width="500" height="500"></canvas>
-  <h3>High Score: <span class="js-high-score"></span></h3>
+  <header>
+    <h1 class="game-title">Pac-ilisk</h1>
+  </header>
+  <aside>
+    <h3 class="high-score-title">High Scores:</h3>
+    <ol class="high-score js-high-score">
+      <li class="first-place">
+        <span class="initials one">AAA</span>
+        <span class="score one">10</span>
+      </li>
+      <li class="second-place">
+        <span class="initials two">AAA</span>
+        <span class="score two">9</span>
+      </li>
+      <li class="third-place">
+        <span class="initials three">AAA</span>
+        <span class="score three">8</span>
+      </li>
+      <li class="fourth-place">
+        <span class="initials four">AAA</span>
+        <span class="score four">7</span>
+      </li>
+      <li class="fifth-place">
+        <span class="initials five">AAA</span>
+        <span class="score five">6</span>
+      </li>
+    </ol>
+  </aside>
+  <main>
+    <section class="game-info">
+      <h3 class="current-level">Level:
+        <span class="js-game-level">1</span>
+      </h3>
+      <h3 class="current-score">Score:
+        <span class="js-game-score">0</span>
+      </h3>
+    </section>
+    <canvas id="game" width="500" height="500"></canvas>
+  </main>
   <script src="main.bundle.js"></script>
 </body>
 </html>
