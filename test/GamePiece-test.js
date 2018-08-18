@@ -14,11 +14,7 @@ describe('GamePiece', () => {
       y: 250,
       height: 25,
       width: 25,
-      color: 'green',
-      dx: 1,
-      dy: 0,
-      dxv: 2,
-      dyv: 2
+      color: 'green'
     });
   });
 
@@ -50,71 +46,4 @@ describe('GamePiece', () => {
 
     assert.isTrue(gamePiece.isCollidingWithWall(width, height));
   });
-
-  it('should be able to move', () => {
-    assert.equal(gamePiece.x, 250)
-
-    gamePiece.move();
-
-    assert.equal(gamePiece.x, 252)
-  });
-
-  it('should allow gamePiece to changeDirection to Down', () => {
-    assert.equal(gamePiece.dy, 0);
-
-    const direction = {
-      dx: gamePiece.dx,
-      dy: gamePiece.dy
-    };
-
-    direction.dy = 1;
-    gamePiece.changeDirection(direction);
-
-    assert.equal(gamePiece.dy, 1);
-  })
-
-  it('should allow gamePiece to changeDirection to Up', () => {
-    assert.equal(gamePiece.dy, 0);
-
-    const direction = {
-      dx: gamePiece.dx,
-      dy: gamePiece.dy
-    };
-
-    direction.dy = -1;
-
-    gamePiece.changeDirection(direction);
-
-    assert.equal(gamePiece.dy, -1);
-  })
-
-  it('should allow gamePiece to changeDirection to Right', () => {
-    gamePiece.dx = 0;
-
-    const direction = {
-      dx: gamePiece.dx,
-      dy: gamePiece.dy
-    };
-
-    direction.dx = 1;
-
-    gamePiece.changeDirection(direction);
-
-    assert.equal(gamePiece.dx, 1);
-  })
-
-  it('should allow gamePiece to changeDirection to Left', () => {
-    gamePiece.dx = 0;
-
-    const direction = {
-      dx: gamePiece.dx,
-      dy: gamePiece.dy
-    };
-
-    direction.dx = -1;
-
-    gamePiece.changeDirection(direction);
-
-    assert.equal(gamePiece.dx, -1);
-  })
 });

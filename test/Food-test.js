@@ -5,7 +5,7 @@ describe('Food', () => {
   let food;
 
   beforeEach(() => {
-    food = new Food(250, 250, 25, 25, 'red', 'black')
+    food = new Food(250, 250, 25, 25, 'red')
   });
 
   it('should be able to create a food', () => {
@@ -19,16 +19,11 @@ describe('Food', () => {
       height: 25,
       width: 25,
       color: 'red',
-      borderColor: 'black',
-      dx: 1,
-      dy: 0,
-      dxv: 2,
-      dyv: 2
     });
   });
 
   it('should be able to have different properties', () => {
-    const food2 = new Food(300, 300, 25, 25, 'brown', 'green')
+    const food2 = new Food(300, 300, 25, 25, 'brown')
 
     assert.deepEqual(food2, {
       x: 300,
@@ -36,11 +31,6 @@ describe('Food', () => {
       height: 25,
       width: 25,
       color: 'brown',
-      borderColor: 'green',
-      dx: 1,
-      dy: 0,
-      dxv: 2,
-      dyv: 2
     });
   });
 });
