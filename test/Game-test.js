@@ -27,7 +27,7 @@ describe('Game', () => {
       ctx: ctx,
       paused: false,
       gameOver: false,
-      snake: new Snake(250, 250, 25, 25, 'red', 'black'),
+      snake: new Snake(250, 250, 25, 25, 'green'),
       food: game.food,
       score: 0
     });
@@ -60,40 +60,8 @@ describe('Game', () => {
 
     game.handleSnake(snake);
 
-    assert.equal(snake.x, 252)
+    assert.equal(snake.x, 275)
     assert.isFalse(game.gameOver);
-  })
-
-  it('should allow snake to changeDirection to Down', () => {
-    assert.equal(snake.dy, 0);
-    let e = { key: 'ArrowDown' };
-    game.handleKeyPress(e);
-
-    assert.equal(snake.dy, 1);
-  })
-
-  it('should allow snake to changeDirection to Up', () => {
-    assert.equal(snake.dy, 0);
-    let e = { key: 'ArrowUp' };
-    game.handleKeyPress(e);
-
-    assert.equal(snake.dy, -1);
-  })
-
-  it('should allow snake to changeDirection to Right', () => {
-    snake.dx = 0;
-    let e = { key: 'ArrowRight' };
-    game.handleKeyPress(e);
-
-    assert.equal(snake.dx, 1);
-  })
-
-  it('should allow snake to changeDirection to Left', () => {
-    snake.dx = 0;
-    let e = { key: 'ArrowLeft' };
-    game.handleKeyPress(e);
-
-    assert.equal(snake.dx, -1);
   })
 
   it('should not allow snake to reverse direction', () => {
@@ -138,7 +106,7 @@ describe('Game', () => {
   })
 
   it('should increment score with every food eaten', () => {
-    game.food = new Food(250, 250, 10, 10, 'blue', 'green');
+    game.food = new Food(250, 250, 10, 10, 'blue');
     game.handleSnake(snake);
 
     assert.equal(game.score, 1);
