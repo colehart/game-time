@@ -15,36 +15,23 @@ const ctx = {
 describe('Game', () => {
   let game;
   let snake;
+  let newFood;
 
   beforeEach(() => {
     game = new Game(ctx);
     snake = game.snake;
-  });
-
-//how to test random placement of food
-  it('should take properties', () => {
-    assert.deepEqual(game, {
-      ctx: ctx,
-      paused: false,
-      gameOver: false,
-      snake: new Snake(50, 250, 25, 25, 'green'),
-      // food: {"color": "red", "height": 25, "width": 25, "x": , "y":},
-      score: 0,
-      level: 1,
-      keyPad : {
-      'ArrowUp': () => this.preventDoubleBack(false, 0, -1),
-      'ArrowRight': () => this.preventDoubleBack(false, 1, 0),
-      'ArrowDown': () => this.preventDoubleBack(false, 0, 1),
-      'ArrowLeft': () => this.preventDoubleBack(false, -1, 0),
-      'Space': () => this.togglePause()
-      }
-
-    });
+    newFood = game.food;
   });
 
   it('should allow snake to collide with walls', () => {
     snake.x = ctx.canvas.width;
     assert.isTrue(snake.isCollidingWithWall(ctx.canvas.width, ctx.canvas.height));
+  })
+
+  it('should randomly place food on the game space', () => {
+    const food1 = game.makeFood();
+
+    assert.notEqual(newFood, food1);
   })
 
   it('should end game when snake collides with wall', () => {
@@ -55,28 +42,18 @@ describe('Game', () => {
   })
 
   it('should know if the game is over', () => {
-    assert.isFalse(game.isOver());
+    assert.isFalse(game.gameOver);
 
     snake.x = ctx.canvas.width;
     game.handleSnake(snake);
 
-    assert.isTrue(game.isOver());
-  })
-
-  it('should allow snake to move if not colliding with walls', () => {
-    // handleSnake() conditional handles endGame if colliding with walls
-    assert.equal(snake.x, 50);
-
-    game.handleSnake(snake);
-
-    assert.equal(snake.x, 275)
-    assert.isFalse(game.gameOver);
+    assert.isTrue(game.gameOver);
   })
 
   it('should not allow snake to reverse direction', () => {
     assert.equal(snake.dx, 1);
 
-    let e = { key: 'ArrowLeft' };
+    let e = Event.createEvent({ code: 'ArrowLeft' });
     game.handleKeyPress(e);
 
     assert.equal(snake.dx, 1);
@@ -104,7 +81,7 @@ describe('Game', () => {
   it('should not allow any non-Spacebar key to pause game', () => {
     assert.isFalse(game.paused);
 
-    let e = { key: 's' };
+    let e = { code: 's' };
     game.handleKeyPress(e);
 
     assert.isFalse(game.paused);
@@ -115,9 +92,7 @@ describe('Game', () => {
   })
 
   it('should increment score with every food eaten', () => {
-    game.food = new Food(250, 250, 10, 10, 'blue');
-    game.handleSnake(snake);
-
+    game.eatFood(snake);
     assert.equal(game.score, 1);
   })
 })
