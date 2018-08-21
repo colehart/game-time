@@ -22,7 +22,9 @@ describe('Snake', () => {
       dx: 1,
       dy: 0,
       dxv: 25,
-      dyv: 25
+      dyv: 25,
+      tail: [],
+      tailLength: 5
     });
   });
 
@@ -38,7 +40,9 @@ describe('Snake', () => {
       dx: 1,
       dy: 0,
       dxv: 25,
-      dyv: 25
+      dyv: 25,
+      tail: [],
+      tailLength: 5
     });
   });
 
