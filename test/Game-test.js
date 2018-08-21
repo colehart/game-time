@@ -27,9 +27,18 @@ describe('Game', () => {
       ctx: ctx,
       paused: false,
       gameOver: false,
-      snake: new Snake(250, 250, 25, 25, 'green'),
-      food: game.food,
-      score: 0
+      snake: new Snake(50, 250, 25, 25, 'green'),
+      // food: {"color": "red", "height": 25, "width": 25, "x": , "y":},
+      score: 0,
+      level: 1,
+      keyPad : {
+      'ArrowUp': () => this.preventDoubleBack(false, 0, -1),
+      'ArrowRight': () => this.preventDoubleBack(false, 1, 0),
+      'ArrowDown': () => this.preventDoubleBack(false, 0, 1),
+      'ArrowLeft': () => this.preventDoubleBack(false, -1, 0),
+      'Space': () => this.togglePause()
+      }
+
     });
   });
 
@@ -56,7 +65,7 @@ describe('Game', () => {
 
   it('should allow snake to move if not colliding with walls', () => {
     // handleSnake() conditional handles endGame if colliding with walls
-    assert.equal(snake.x, 250);
+    assert.equal(snake.x, 50);
 
     game.handleSnake(snake);
 

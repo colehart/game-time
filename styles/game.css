@@ -38,18 +38,25 @@ p {
   font-size: 1.5rem;
 }
 
+h2 {
+  margin-top: 1em;
+}
+
 aside {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
   justify-self: end;
-  align-self: center;
+  /*align-self: end;*/
   /*padding-top: 10%;*/
   text-align: center;
   font-family: 'VT323', monospace;
 }
 
 ol {
-  text-align: left;
+  text-align: center;
+  width: 240px;
+  padding: 0 1rem;
+  list-style-type: none;
 }
 
 main {
