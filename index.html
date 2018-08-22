@@ -10,27 +10,27 @@
 </head>
 <body>
   <header>
-    <h1 class="game-title">Nom Nom Snake</h1>
+    <h1 class="game-title" aria-label="game-title">Nom Nom Snake</h1>
   </header>
   <aside>
-    <h2>Welcome to Nom Nom Snake!</h2>
-    <p>Move: Arrow Keys</p>
-    <p>Pause: Space Bar</p>
-    <h2 class="high-score-title">High Scores:</h2>
+    <h2 aria-label="welcome-banner">Welcome to Nom Nom Snake!</h2>
+    <p aria-label="movement-control-label">Move: Arrow Keys</p>
+    <p aria-label="pause-control-label">Pause: Space Bar</p>
+    <h2 class="high-score-title" aria-label="high-score-label">High Scores:</h2>
     <ol class="high-score js-high-score-list">
       <!-- js will populate new high scores here -->
     </ol>
   </aside>
   <main>
     <section class="game-info">
-      <h3 class="current-level">Level:
-        <span class="js-game-level">1</span>
+      <h3 class="current-level" aria-label="current-level-label">Level:
+        <span class="js-game-level" aria-label="current-level">1</span>
       </h3>
-      <h3 class="current-score">Score:
-        <span class="js-game-score">0</span>
+      <h3 class="current-score" aria-label="current-score-label">Score:
+        <span class="js-game-score" aria-label="current-score">0</span>
       </h3>
     </section>
-    <canvas id="game" width="500" height="500"></canvas>
+    <canvas id="game" width="500" height="500" aria-label="game-viewing-area"></canvas>
   </main>
   <script src="main.bundle.js"></script>
 </body>
