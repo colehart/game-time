@@ -112,4 +112,11 @@ describe('Snake', () => {
 
     assert.equal(snake.dx, -1);
   })
+
+  it('should be able to add blocks to the snake', () => {
+    snake.tail = [];
+
+    snake.makeChunk()
+    assert.equal(snake.tail.length, 1);
+  }) 
 });
