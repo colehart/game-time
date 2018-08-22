@@ -53,7 +53,7 @@ describe('Game', () => {
   it('should not allow snake to reverse direction', () => {
     assert.equal(snake.dx, 1);
 
-    let e = Event.createEvent({ code: 'ArrowLeft' });
+    let e = { code: 'ArrowLeft', preventDefault: () => {}  };
     game.handleKeyPress(e);
 
     assert.equal(snake.dx, 1);
@@ -62,7 +62,7 @@ describe('Game', () => {
   it('should pause game on spacebar hit', () => {
     assert.isFalse(game.paused);
 
-    let e = { code: 'Space' };
+    let e = { code: 'Space', preventDefault: () => {}  };
     game.handleKeyPress(e);
 
     assert.isTrue(game.paused);
@@ -71,7 +71,7 @@ describe('Game', () => {
   it('should not allow snake to move when game is paused', () => {
     assert.equal(snake.dx, 1);
 
-    let e = { code: 'Space' };
+    let e = { code: 'Space', preventDefault: () => {} };
     game.handleKeyPress(e);
 
     assert.equal(snake.dx, 0);
