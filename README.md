@@ -5,4 +5,4 @@
 
 Project requirements can be found [here](http://frontend.turing.io/projects/game-time.html).
 
-[![Alt text](images/GameScreenshot.png "Game Screenshot")](https://colehart.github.io/game-time/)
+[![Alt text](./assets/images/NomNomSnakeScreeShot.png "Game Screenshot")](https://colehart.github.io/game-time/)
