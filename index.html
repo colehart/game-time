@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Nom Nom Snake</title>
-  <link href='./images/snake.png' rel='icon'>
-  <link href='./styles/game.css' rel='stylesheet'>
+  <link href='./assets/images/snake.png' rel='icon'>
+  <link href='./assets/styles/game.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -14,9 +14,9 @@
   </header>
   <aside>
     <h2 aria-label="welcome-banner">Welcome to Nom Nom Snake!</h2>
-    <p aria-label="movement-control-label">Move: Arrow Keys</p>
-    <p aria-label="pause-control-label">Pause: Space Bar</p>
-    <h2 class="high-score-title" aria-label="high-score-label">High Scores:</h2>
+    <p aria-label="movement-control">Move: Arrow Keys</p>
+    <p aria-label="pause-control">Pause: Space Bar</p>
+    <h2 class="high-score-title" aria-label="high-scores">High Scores:</h2>
     <ol class="high-score js-high-score-list">
       <!-- js will populate new high scores here -->
     </ol>
@@ -30,7 +30,8 @@
         <span class="js-game-score" aria-label="current-score">0</span>
       </h3>
     </section>
-    <canvas id="game" width="500" height="500" aria-label="game-viewing-area"></canvas>
+    <canvas id="game" width="500" height="500" aria-label="game-viewing-area">
+    </canvas>
   </main>
   <script src="main.bundle.js"></script>
 </body>
