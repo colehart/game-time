@@ -7,4 +7,4 @@ This project was made by Cole Hart and Kevin Simpson as a part of the Front End 
 
 Project requirements can be found [here](http://frontend.turing.io/projects/game-time.html). Turn sound on and click below to play the game. Only available on desktop due to needing arrow keys for navigation.
 
-[![Alt text](./assets/images/NomNomSnakeScreeShot.png "Game Screenshot")](https://colehart.github.io/game-time/)
+[![Nom-Nom Snake Screen Recording](./assets/images/nom-nom-recording.gif "Nom-Nom Snake Screen Recording")](https://colehart.github.io/game-time/)
